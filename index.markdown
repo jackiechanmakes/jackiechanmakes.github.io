@@ -4,3 +4,5 @@
 
 layout: home
 ---
+
+{{ site.baseurl }}{% link tutorial.html %}
