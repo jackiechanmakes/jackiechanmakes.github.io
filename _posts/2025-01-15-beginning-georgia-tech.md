@@ -3,7 +3,7 @@ layout: post
 title: "Georgia Tech - Lesson #1"
 author: "Jackie Chan"
 excerpt_separator: <!--more-->
-tags: gatech
+tags: gatech lessons
 ---
 
 # Manage information overload by mastering the ability to quickly extract key details.<!--more-->
