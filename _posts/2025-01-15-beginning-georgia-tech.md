@@ -1,25 +1,29 @@
 ---
 layout: post
-title: "Georgia Tech Lesson #1 - Filter Information Fast"
+title: "Georgia Tech Lesson #1"
 author: "Jackie Chan"
+excerpt_separator: <!--more-->
 tags: gatech
 ---
 
-I received my acceptance letter in Fall 2024 for Georgia Tech's Online Master of Science in Computer Science (OMSCS) program with a start date of Spring 2025. In addition to a number of theoretical math and programming CS courses at Caltech, I intentionally prepped for my Master's program by taking [Computer Organization and Assembly Programming](https://www.westvalley.edu/catalog/courses/computer-science/cist039.html), [Data Structures using Advanced C++](https://www.westvalley.edu/catalog/courses/computer-science/cist004b.html), [Discrete Mathematics](https://www.westvalley.edu/catalog/courses/mathematics/math019.html), [Operating System Concepts](https://www.deanza.edu/cis/courses.html), and [Python Concepts and Methodologies](https://www.westvalley.edu/catalog/courses/computer-science/cist005a.html). With months leading to the start date, I also spent time reading up on other students' experiences and discussing with industry colleagues a course plan that would optimize my learnings for professional work. 
+# What I learned: The importance of managing information overload<!--more-->
+
+I received my acceptance letter in Fall 2024 for [Georgia Tech's Online Master of Science in Computer Science (OMSCS)](https://catalog.gatech.edu/programs/computer-science-ms/#requirementstext) program with a start date of Spring 2025. To prepare, I took several courses such as Computer Organization and Assembly Programming, Data Structures using Advanced C++, Discrete Mathematics, Operating System Concepts, and Python Concepts and Methodologies. I also spent time reading about other students' experiences and discussing course plans with industry colleagues to optimize my learning for professional growth. 
 
 # First Impressions
-Given my preparation, I thought I knew what to expect, but you just don't know until you're in it. After the new student onboarding course in which everyone got to meet each other, there's no other word to describe the amount of information that poured in but "overwhelming." Alongside multiple lengthly emails that came from Georgia Tech which included a 40 page single spaced orientation documenation, I had students reaching out to connect on Slack, Discord, native text chats, WhatsApp, Ed Discussion, Georgia Tech email address, and my personal email address. A lot of them were group chats but there were just as many one-to-one chats as well. I wanted to immerse myself in the program experience by connecting with everyone, but I once turned away from my phone for 5 minutes and I had missed 360 messages! I was on my devices trying to keep up, but I knew it wasn't sustainable. I was going to burn out from screen time before any teachings would even take place.
+Despite my preparation, I was not ready for the sheer volume of information I would encounter once the program began. After the new student onboarding session, I was flooded with communications: multiple lengthy emails from Georgia Tech (including a 40-page, single-spaced orientation document) and messages from fellow students across platforms like Slack, Discord, WhatsApp, Ed Discussion, and email. Despite my best efforts to stay on top of the constant stream of notifications, I knew it was unsustainable when I returned to find 360 unread messages after a 5-minute break.
 
 # Lesson Learned
-After mulling over it for a while, I implemented guidelines that gave me greater mental badwidth, allowing me to focus on my program goals while still connecting with fellow students.
+After taking some time to reflect, I developed several strategies to help me process information in such a way that I could maintain focus on what truly matters. 
 
-1. I'll read every official email that comes my way from Georgia Tech but I don't have to read every message in group chats. To make sure I didn't miss out on someeone reaching out to me, I put notifications on only for direct messages to me or when they specifically call me out on the group chats. 
-2. I only read OMSCS-related messages when I'm at my computer, not my phone. This allowed me to have breaks that resulted in me being able to pay even more attention when I immersed myself back to OMSCS.
+1. Prioritize information sources
+   - I made it a priority to read all official emails from Georgia Tech, but I allowed myself to disengage from less critical messages in group chats. To ensure I didn’t miss essential content — especially on platforms like Ed Discussion, where course-related discussions take place — I adjusted my notification settings to alert me only for direct messages or when I was specifically mentioned in group chats.
+2. Compartmentalize digital spaces
+   - I reserved OMSCS-related messages for when I was at my computer rather than checking them on my phone. This approach allowed me to disconnect and minimize context-switching, helping me to engage more effectively when I returned to my OMSCS work. 
+3. Limit Distractions
+   - I established dedicated hours for focused work as the temptation to check messages from course TAs and peers was significant. This structure helped me maintain productivity while still engage with the program community during set times.
 
-All of this boils down to practicing the ability to filter information given to me fast. I also learned how important it was to not constantly be on all the time. I won't be able to give it my best effort if I'm fatigued so rests are important. Figuring this out immensely helped when my course started and then thousands of messages were coming in as students worked on the assignment. It didn't just help to focus on what was important - me working on the assignment - but it also helped when I could dwindle down the important parts as I learned new technology in a new tool's documentation.
-
-We're in a much better place now and I'm excited to see what else I learn from the program!
-
+By implementing these strategies, I created a system that allows me to efficiently extract key details from large amounts of information, encouraging moments of rest to have the energy needed for foused work. Since adopting these practices, I've found that I can sustain longer periods of focus and engage more deeply with the content, all while continuing to network with my peers. My interactions with them have become more meaningful as well because my communication with them are more deliberate. This was such an important first lesson and I’m excited to see what else I learn throughout this program!
 
 
 
