@@ -4,6 +4,7 @@ title: "Georgia Tech - Lesson #1"
 author: "Jackie Chan"
 excerpt_separator: <!--more-->
 tags: gatech lessons
+comments: true
 ---
 
 # Manage information overload by mastering the ability to quickly extract key details.<!--more-->
