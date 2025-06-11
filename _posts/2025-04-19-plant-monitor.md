@@ -14,8 +14,8 @@ I created DataSprout, an IoT sensor monitoring system consisting of a Raspberry 
 I’ve been fortunate to grow up with parents who love to garden, which means I’ve enjoyed for as long as I could remember high quality, hard-to-find fresh fruits and mental boosts that inherently come from being around thriving nature.
 
 <p align="center">
-  <img src="/assets/images/imgage-plant1.png" width="45%" style="display:inline-block; margin-right: 10px;">
-  <img src="/assets/images/image-plant2.png" width="45%" style="display:inline-block;">
+  <img src="/assets/images/imgage-plant1.png" width="35%" style="display:inline-block; margin-right: 10px;">
+  <img src="/assets/images/image-plant2.png" width="35%" style="display:inline-block;">
 </p>
 Photos of my parent’s thriving garden. 
 
@@ -23,7 +23,7 @@ I’ve been unfortunate to find after I moved away that I don’t naturally poss
 
 To support my plants’ era of thriving, DataSprout uses a Raspberry Pi 5 running the Debian GNU/Linux 12 (bookworm) operating system with connections to a DHT11 sensor and 16x2 I2C LCD panel. The firmware logic to initialize and run the hardware system is written in C. As an extension to the project, a full stack web application has been created using MariaDB as the database, Node.js/Express.js as the backend/API server, and React as the frontend/web client along with the D3.js library to dynamically capture and visualize real-time data. On the technical side, motivation stems from wanting to explore the intersection among electrical engineering, computer engineering, and software engineering in the form of hardware components that include sensors with a full-stack web app built from scratch. Additionally, with a particular interest in data visualization, I wanted to craft the foundation of a monitoring dashboard which would encourage more frequent plant monitoring but also could be expanded on for future technical projects, which I foresee will be useful as data drive decisions across different telemetry applications. 
 
-DataSprout Platform Features
+**DataSprout Platform Features**
 1.	LCD Panel display of the latest temperature and humidity sensor reading with corresponding timestamps using a Raspberry Pi 5 and DHT11 sensor
 2.	Full stack web app data monitoring dashboard
     - RESTful API endpoints for querying time-series and aggregated stats data with start and end date filtering
