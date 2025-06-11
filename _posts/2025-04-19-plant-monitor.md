@@ -6,15 +6,17 @@ excerpt_separator: <!--more-->
 tags: fun
 comments: true
 ---
-I created an IoT sensor monitoring system, which I call DataSprout, consisting of a Raspberry Pi, hardware sensor components, and web dashboard for real-time environmental data collection and visualization.
+I created DataSprout, an IoT sensor monitoring system consisting of a Raspberry Pi, hardware sensor components, and web dashboard for real-time environmental data collection and visualization.
 
 <!--more-->
 [Project Demonstration Video](https://youtu.be/q2UzhQ5I93k?si=KLvonQuXUC7zIyVW)
 
 I’ve been fortunate to grow up with parents who love to garden, which means I’ve enjoyed for as long as I could remember high quality, hard-to-find fresh fruits and mental boosts that inherently come from being around thriving nature.
 
-![alt text](/assets/images/image-plant1.png)
-![alt text](/assets/images/image-plant2.png)
+<p align="center">
+  <img src="/assets/images/imgage-plant1.png" width="45%" style="display:inline-block; margin-right: 10px;">
+  <img src="/assets/images/image-plant2.png" width="45%" style="display:inline-block;">
+</p>
 Photos of my parent’s thriving garden. 
 
 I’ve been unfortunate to find after I moved away that I don’t naturally possess the same affinity for keeping plants alive. To increase my chances of not being labelled as the family’s ‘black thumb’, I’ve come up with an IoT project, which I call DataSprout, to monitor environmental temperature and humidity data, which are vital to a plant’s wellbeing. 
