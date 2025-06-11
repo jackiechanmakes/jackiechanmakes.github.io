@@ -19,7 +19,8 @@ layout: default
   <h1 class="post-title">{{ page.title }}</h1>
   <div class="post-line"></div>
 
-  {{ content }}
+  {% assign excerpt = page.excerpt | strip_newlines %}
+  {{ content | remove: excerpt }}
 </div>
 
 {% if page.comments %}
