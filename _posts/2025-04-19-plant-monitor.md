@@ -60,12 +60,12 @@ System Architecture Overview diagram. Sensor data flows among the hardware compo
 HARDWARE
 A Raspberry Pi 5, equipped with a GPIO 40-pin Breakout Extension Board, is connected with Dupont jumper wires to a full sized 830-point breadboard, DHT11 temperature and humidity sensor, and a 16x2 I2C LCD panel. 
 
- ![alt text](/assets/images/image-hardware-setup.png)
+![alt text](/assets/images/image-hardware-setup.png)
 Screenshot of DataSprout Platform hardware setup. 
  
+![alt text](/assets/images/image-fritzing-diagram.png)
 Fritzing circuit wiring diagram showcases the connections needed for the Raspberry Pi 5, breadboard, I2C LCD panel, and DHT11 temperature and humidity sensor.
  
-
 Hardware Component	Pin on Component	Connects to Pi Pin #	Function
 DHT11 Sensor	VCC	Pin 2	3.3V Power
     GND	Pin 5	Ground
@@ -83,7 +83,7 @@ HARDWARE/SOFTWARE INTERFACE: FIRMWARE LOGIC
 Refer to Appendix C for MariaDB database installation and setup. 
 1.	DATA COLLECTION 
 
-FIRMWARE LOGIC  SENSOR HARDWARE  FIRMWARE LOGIC  DATABASE SERVER
+FIRMWARE LOGIC --> SENSOR HARDWARE --> FIRMWARE LOGIC --> DATABASE SERVER
 
 After the Raspberry Pi 5 is powered on, the DHT11 sensor and I2C LCD display panel remain idle until triggered by a signal set off by the firmware logic. This activation is initiated by executing a ‘nohup’ command within the start-data-collection.sh script, which runs the collect_data.c program (refer to Appendix A) to: (1) read data from the sensor, (2) display it on the LCD panel, and (3) insert the data into a MariaDB database. These operations repeat every 30 minutes until either the Raspberry Pi is shut down or the process is explicitly terminated using the stop-data-collection.sh script. The use of the POSIX nohup command (short for 'no hang up') ensures the data collection process continues running in the system’s background even if the user logs out or the session ends.
 
@@ -91,7 +91,7 @@ After the Raspberry Pi 5 is powered on, the DHT11 sensor and I2C LCD display pan
 
 In a fully modular and independent process, the frontend and backend of the full stack web application are launched through a Bash script (start-app.sh) using ‘pm2’, which retrieves data from the database and serves it to users through the web interface.
 
-1.	FRONTEND  BACKEND
+1.	FRONTEND --> BACKEND
 
 The user interacts with the React frontend by specifying the start and end dates of the data window they want to view. These dates are selected using a calendar date picker dropdown menu. Upon selection, the setStartDate() and setEndDate() functions are invoked to update the component state in App.js. 
 
@@ -127,7 +127,7 @@ The /api/stats endpoint connects directly to the database to compute and retriev
 
 SOFTWARE
 
-DATABASE SERVER  BACKEND  FRONTEND
+DATABASE SERVER --> BACKEND --> FRONTEND
 
 The frontend communicates with the backend API endpoints to retrieve both raw sensor data and aggregated statistics. This data is then used to render a responsive, animated line chart using React and the D3.js library. 
 
@@ -143,6 +143,7 @@ A close up of the tooltip feature of the app. The measure of every data point of
 An important architectural detail is that the data collection logic operates independently from the web server. This separation ensures that the web server can access and display newly collected data in real time without needing to control or wait on the data acquisition process. With the app’s modular and dynamic design, users can adjust the date range as often as they would like. When the date range is changed, the frontend fetches and displays updated data without requiring a full page reload, resulting in a smooth and responsive user experience. 
 
 Design Decisions, Additional Considerations, and Concluding Thoughts
+
 Crafting my own open-ended project and having the grit to finish it in its entirety within a narrowed scope that I define myself was not trivial. I wrestled with countless internal debates: Should I add a carbon dioxide sensor to the DataSprout Platform? Should I use Plotly.js instead of D3.js for data visualization? Should I use React or Angular, MariaDB or MySQL, Python or C for the tech stack? Some decisions were made for me such as when I realized after implementation that Plotly.js was just too heavy for the Raspberry Pi OS. Others came from trial and error and testing different paths until a decision felt right. For example, I used a C binary to fetch and expose data from the database server for the /api/data endpoint, whereas I queried the database directly using SQL for the /api/stats endpoint. While I could have used either approach for both endpoints, I intentionally chose different methods to better understand the various data flow options. Through that process, I found that using the C binary for the /api/data endpoint aligned more naturally with the firmware’s architecture, whereas going through C for /api/stats, which only returns a summary of the data, would have added unnecessary complexity.
 
-I’m truly chuffed with the outcome of this project. While building, I gained a deep understanding of just how crucial system design and computer architecture are and how challenging it can be to pass data between hardware and software layers. Bridging that gap was one of the most rewarding (and frustrating!) parts of the crafting experience. Another big takeaway was realizing how long the final polishing stages take. The finishing touches which include the UI tweaks, bug fixes, and documentation ended up consuming just as much time as building the core functionality but it’s those final details that make me giddy with satisfaction when I see the project in its completed form. I want to thank Takyiu Liu for guiding me on how electronic components work and Tina Zejda and Nathan Hii for encouraging me to keep coding through the tough days. I’m also grateful to my other friends and family for celebrating me and each prototype I show them even when they couldn’t quite understand the differences from the version I’d eagerly shown them just a few minutes earlier. I’m so excited to use the skills I gained from this project to advance my next build even further. 
+I’m truly chuffed with the outcome of this project. While building, I gained a deep understanding of just how crucial system design and computer architecture are and how challenging it can be to pass data between hardware and software layers. Bridging that gap was one of the most rewarding (and frustrating!) parts of the crafting experience. Another big takeaway was realizing how long the final polishing stages take. The finishing touches which include the UI tweaks, bug fixes, and documentation ended up consuming just as much time as building the core functionality but it’s those final details that make me giddy with satisfaction when I see the project in its completed form. 
