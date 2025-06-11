@@ -29,12 +29,12 @@ To support my plants’ era of thriving, DataSprout uses a Raspberry Pi 5 runnin
 1.	**LCD Panel display** of the latest temperature and humidity sensor reading with corresponding timestamps using a Raspberry Pi 5 and DHT11 sensor
 2.	**Full stack web app data monitoring dashboard**
     - *<u>RESTful API endpoints</u>* for querying time-series and aggregated stats data with start and end date filtering
-    - Date picker calendar dropdown to prompt data filtering
-    - Line graphs of temperature and humidity data with interactive tooltips that display data values on hover
-    - Dynamic data display without requiring full page refresh 
-3.	Real-time sensor data collection running in the system’s background to ensure continuous data capturing even when the web app is not running 
-4.	Automated Bash scripts to start and stop the frontend, backend, and data collection services with a single command execution
-5.	Modular system design allowing for easy integration of additional sensors, features, or services to support future scalability and upgrade efforts 
+    - *<u>Date picker calendar dropdown</u>* to prompt data filtering
+    - *<u>Line graphs of temperature and humidity data</u>* with *<u>interactive tooltips</u>* that display data values on hover
+    - *<u>Dynamic data display</u>* without requiring full page refresh 
+3.	**Real-time sensor data collection running in the system’s background** to ensure continuous data capturing even when the web app is not running 
+4.	**Automated Bash scripts** to start and stop the frontend, backend, and data collection services with a single command execution
+5.	**Modular system design** allowing for easy integration of additional sensors, features, or services to support future scalability and upgrade efforts 
 
 **Tech Stack**
 
