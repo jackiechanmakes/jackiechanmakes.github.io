@@ -10,6 +10,7 @@ I created DataSprout, an IoT sensor monitoring system consisting of a Raspberry 
 
 <!--more-->
 [Project Demonstration Video](https://youtu.be/q2UzhQ5I93k?si=KLvonQuXUC7zIyVW)
+[GitHub Repo](https://github.com/jackiechanmakes/datasprout-platform)
 
 I’ve been fortunate to grow up with parents who love to garden, which means I’ve enjoyed for as long as I could remember high quality, hard-to-find fresh fruits and mental boosts that inherently come from being around thriving nature.
 
@@ -119,13 +120,10 @@ The /api/data endpoint handles requests for raw sensor data. It extracts startDa
 
 This binary is responsible for interfacing with the database to retrieve raw sensor readings for the specified date range. The Node.js ‘exec’ function from the child_process module is used to execute the command. The server captures the binary’s output through stdout and stderr. The stdout data is split by line breaks and parsed into an array of objects, each containing the following properties: temperature, humidity, time. This array, ‘data’, is then returned to the client as a JSON response.
 
- 
-
 BACKEND  DATABASE SERVER
 
 The /api/stats endpoint connects directly to the database to compute and retrieve summary statistics. It extracts the startDate and endDate from the query parameters and performs an SQL query to calculate the minimum, maximum, and average values for temperature. After the query is executed, the results are formatted into a JSON object and sent back to the client in the response. 
 
- 
 
 SOFTWARE
 
@@ -144,7 +142,7 @@ A close up of the tooltip feature of the app. The measure of every data point of
 
 An important architectural detail is that the data collection logic operates independently from the web server. This separation ensures that the web server can access and display newly collected data in real time without needing to control or wait on the data acquisition process. With the app’s modular and dynamic design, users can adjust the date range as often as they would like. When the date range is changed, the frontend fetches and displays updated data without requiring a full page reload, resulting in a smooth and responsive user experience. 
 
-Design Decisions, Additional Considerations, and Concluding Thoughts
+**Design Decisions, Additional Considerations, and Concluding Thoughts**
 
 Crafting my own open-ended project and having the grit to finish it in its entirety within a narrowed scope that I define myself was not trivial. I wrestled with countless internal debates: Should I add a carbon dioxide sensor to the DataSprout Platform? Should I use Plotly.js instead of D3.js for data visualization? Should I use React or Angular, MariaDB or MySQL, Python or C for the tech stack? Some decisions were made for me such as when I realized after implementation that Plotly.js was just too heavy for the Raspberry Pi OS. Others came from trial and error and testing different paths until a decision felt right. For example, I used a C binary to fetch and expose data from the database server for the /api/data endpoint, whereas I queried the database directly using SQL for the /api/stats endpoint. While I could have used either approach for both endpoints, I intentionally chose different methods to better understand the various data flow options. Through that process, I found that using the C binary for the /api/data endpoint aligned more naturally with the firmware’s architecture, whereas going through C for /api/stats, which only returns a summary of the data, would have added unnecessary complexity.
 
