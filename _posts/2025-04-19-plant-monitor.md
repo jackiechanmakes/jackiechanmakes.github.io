@@ -36,14 +36,14 @@ To support my plants’ era of thriving, DataSprout uses a Raspberry Pi 5 runnin
 
 **Tech Stack**
 
-HARDWARE:
+**HARDWARE:**
 - Raspberry Pi 5
 - 16x2 I2C LCD Panel
 - DHT11 temperature and humidity sensor 
 - Dupont jumper wires 
 - GPIO 40-pin Breakout Extension Board
 
-SOFTWARE:
+**SOFTWARE:**
 - MariaDB
 - C firmware logic code 
 - React
@@ -52,16 +52,15 @@ SOFTWARE:
 - D3.js
 - Bash scripting
 
-Project Structure
+**Project Structure**
 ![alt text](/assets/images/image-proj-directory.png)
 
-System Design and Setup Overview
-
+**System Design and Setup Overview**
 ![alt text](/assets/images/image-sys-architecture.png)
 
 System Architecture Overview diagram. Sensor data flows among the hardware components, database, and web server
 
-HARDWARE
+**HARDWARE**
 A Raspberry Pi 5, equipped with a GPIO 40-pin Breakout Extension Board, is connected with Dupont jumper wires to a full sized 830-point breadboard, DHT11 temperature and humidity sensor, and a 16x2 I2C LCD panel. 
 
 ![alt text](/assets/images/image-hardware-setup.png)
@@ -82,9 +81,7 @@ GPIO Breakout Extension Board	All 40 Pins	Connected to GPIO Header	Extends acces
 
 Wiring chart details the wiring connections needed among the hardware components with jumper wires.
 
-HARDWARE/SOFTWARE INTERFACE: FIRMWARE LOGIC
-
-Refer to Appendix C for MariaDB database installation and setup. 
+**HARDWARE/SOFTWARE INTERFACE: FIRMWARE LOGIC**
 1.	DATA COLLECTION 
 
 FIRMWARE LOGIC --> SENSOR HARDWARE --> FIRMWARE LOGIC --> DATABASE SERVER
@@ -95,15 +92,16 @@ After the Raspberry Pi 5 is powered on, the DHT11 sensor and I2C LCD display pan
 
 In a fully modular and independent process, the frontend and backend of the full stack web application are launched through a Bash script (start-app.sh) using ‘pm2’, which retrieves data from the database and serves it to users through the web interface.
 
-1.	FRONTEND --> BACKEND
+    1.	FRONTEND --> BACKEND
 
-The user interacts with the React frontend by specifying the start and end dates of the data window they want to view. These dates are selected using a calendar date picker dropdown menu. Upon selection, the setStartDate() and setEndDate() functions are invoked to update the component state in App.js. 
-
+    The user interacts with the React frontend by specifying the start and end dates of the data window they want to view. These dates are selected using a calendar date picker dropdown menu. Upon selection, the setStartDate() and setEndDate() functions are invoked to update the component state in App.js. 
  
-                                               DataSprout Platform app landing page.
+ ![alt text](/assets/images/image-app-landing-page.png.png)
 
- 
-                                Date picker UI showcase of the DataSprout Platform app. 
+DataSprout Platform app landing page.
+
+![alt text](/assets/images/image-app-datepicker.png)
+Date picker UI showcase of the DataSprout Platform app. 
 
 After React re-renders App.js with the new state, a useEfect hook that watches [startDate, endDate] is triggered. This hook initiates data fetching from the following two RESTful API endpoints: 
 •	http://localhost:8080/api/data?startDate=${startDate}&endDate=${endDate}
