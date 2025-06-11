@@ -6,7 +6,9 @@ excerpt_separator: <!--more-->
 tags: fun
 comments: true
 ---
+I created an IoT sensor monitoring system, which I call DataSprout, consisting of a Raspberry Pi, hardware sensor components, and web dashboard for real-time environmental data collection and visualization.
 
+<!--more-->
 [Project Demonstration Video](https://youtu.be/q2UzhQ5I93k?si=KLvonQuXUC7zIyVW)
 
 I’ve been fortunate to grow up with parents who love to garden, which means I’ve enjoyed for as long as I could remember high quality, hard-to-find fresh fruits and mental boosts that inherently come from being around thriving nature.
