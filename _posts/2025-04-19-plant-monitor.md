@@ -80,80 +80,148 @@ Screenshot of DataSprout Platform hardware setup.
 </div>
 
 Fritzing circuit wiring diagram showcases the connections needed for the Raspberry Pi 5, breadboard, I2C LCD panel, and DHT11 temperature and humidity sensor.
- 
-Hardware Component	Pin on Component	Connects to Pi Pin #	Function
-DHT11 Sensor	VCC	Pin 2	3.3V Power
-    GND	Pin 5	Ground
-    DATA	Pin 7	Digital Input (Sensor Data)
-I2C LCD Panel	VCC	Pin 4	5V Power
-    GND	Pin 9	Ground
-    SDA	Pin 3	I2C Data
-    SCL	Pin 6	I2C Clock
-GPIO Breakout Extension Board	All 40 Pins	Connected to GPIO Header	Extends access to all GPIOs
+
+<table>
+  <tr>
+    <th>Hardware Component</th>
+    <th>Pin on Component</th>
+    <th>Connects to Pi Pin #</th>
+    <th>Function</th>
+  </tr>
+  <tr>
+    <td rowspan="3">DHT11 Sensor</td>
+    <td>VCC</td>
+    <td>Pin 2</td>
+    <td>3.3V Power</td>
+  </tr>
+  <tr>
+    <td>GND</td>
+    <td>Pin 5</td>
+    <td>Ground</td>
+  </tr>
+  <tr>
+    <td>DATA</td>
+    <td>Pin 7</td>
+    <td>Digital Input (Sensor Data)</td>
+  </tr>
+  <tr>
+    <td rowspan="4">I2C LCD Panel</td>
+    <td>VCC</td>
+    <td>Pin 4</td>
+    <td>5V Power</td>
+  </tr>
+  <tr>
+    <td>GND</td>
+    <td>Pin 9</td>
+    <td>Ground</td>
+  </tr>
+  <tr>
+    <td>SDA</td>
+    <td>Pin 3</td>
+    <td>I2C Data</td>
+  </tr>
+  <tr>
+    <td>SCL</td>
+    <td>Pin 6</td>
+    <td>I2C Clock</td>
+  </tr>
+  <tr>
+    <td>GPIO Breakout Extension Board</td>
+    <td>All 40 Pins</td>
+    <td>Connected to GPIO Header</td>
+    <td>Extends access to all GPIOs</td>
+  </tr>
+</table>
+
 
 Wiring chart details the wiring connections needed among the hardware components with jumper wires.
 
-**HARDWARE/SOFTWARE INTERFACE: FIRMWARE LOGIC**
-1.	DATA COLLECTION 
+***<u>HARDWARE/SOFTWARE INTERFACE: FIRMWARE LOGIC</u>***
+
+**1.	DATA COLLECTION**
 
 FIRMWARE LOGIC --> SENSOR HARDWARE --> FIRMWARE LOGIC --> DATABASE SERVER
 
 After the Raspberry Pi 5 is powered on, the DHT11 sensor and I2C LCD display panel remain idle until triggered by a signal set off by the firmware logic. This activation is initiated by executing a ‘nohup’ command within the start-data-collection.sh script, which runs the collect_data.c program (refer to Appendix A) to: (1) read data from the sensor, (2) display it on the LCD panel, and (3) insert the data into a MariaDB database. These operations repeat every 30 minutes until either the Raspberry Pi is shut down or the process is explicitly terminated using the stop-data-collection.sh script. The use of the POSIX nohup command (short for 'no hang up') ensures the data collection process continues running in the system’s background even if the user logs out or the session ends.
 
-2.	DATA FETCH
+**2.	DATA FETCH**
 
 In a fully modular and independent process, the frontend and backend of the full stack web application are launched through a Bash script (start-app.sh) using ‘pm2’, which retrieves data from the database and serves it to users through the web interface.
 
-    1.	FRONTEND --> BACKEND
+1. FRONTEND --> BACKEND
 
     The user interacts with the React frontend by specifying the start and end dates of the data window they want to view. These dates are selected using a calendar date picker dropdown menu. Upon selection, the setStartDate() and setEndDate() functions are invoked to update the component state in App.js. 
  
- ![alt text](/assets/images/image-app-landing-page.png.png)
+ <div class="image-row">
+  <img src="/assets/images/image-app-landing-page.png" class="large-img">
+</div>
 
 DataSprout Platform app landing page.
 
-![alt text](/assets/images/image-app-datepicker.png)
+<div class="image-row">
+  <img src="/assets/images/image-app-datepicker.png" class="large-img">
+</div>
+
 Date picker UI showcase of the DataSprout Platform app. 
 
 After React re-renders App.js with the new state, a useEfect hook that watches [startDate, endDate] is triggered. This hook initiates data fetching from the following two RESTful API endpoints: 
-•	http://localhost:8080/api/data?startDate=${startDate}&endDate=${endDate}
-o	Returns raw sensor data with associated timestamps.
-•	http://localhost:8080/api/stats?startDate=${startDate}&endDate=${endDate}
-o	Returns aggregated data statistics including minimum, maximum, and average values.
+- http://localhost:8080/api/data?startDate=${startDate}&endDate=${endDate}
+  - Returns raw sensor data with associated timestamps.
+- http://localhost:8080/api/stats?startDate=${startDate}&endDate=${endDate}
+  - Returns aggregated data statistics including minimum, maximum, and average values.
 
 2.	A Node.js server (Server.js) built with the Express framework exposes two API endpoints: /api/data and /api/stats.
 
-BACKEND  FIRMWARE LOGIC  DATABASE SERVER
+BACKEND --> FIRMWARE LOGIC --> DATABASE SERVER
 
-The /api/data endpoint handles requests for raw sensor data. It extracts startDate and endDate from the query string (req.query) and uses them to construct a shell command that executes a compiled C binary (Appendix B	):  
+The /api/data endpoint handles requests for raw sensor data. It extracts startDate and endDate from the query string (req.query) and uses them to construct a shell command that executes a compiled C binary:  
 
-                       ../data-service/fetch_data ${startDate} ${endDate}
+    ../data-service/fetch_data ${startDate} ${endDate}
 
 This binary is responsible for interfacing with the database to retrieve raw sensor readings for the specified date range. The Node.js ‘exec’ function from the child_process module is used to execute the command. The server captures the binary’s output through stdout and stderr. The stdout data is split by line breaks and parsed into an array of objects, each containing the following properties: temperature, humidity, time. This array, ‘data’, is then returned to the client as a JSON response.
 
-BACKEND  DATABASE SERVER
+<div class="image-row">
+  <img src="/assets/images/image-api-data.png" class="large-img">
+</div>
+
+BACKEND --> DATABASE SERVER
 
 The /api/stats endpoint connects directly to the database to compute and retrieve summary statistics. It extracts the startDate and endDate from the query parameters and performs an SQL query to calculate the minimum, maximum, and average values for temperature. After the query is executed, the results are formatted into a JSON object and sent back to the client in the response. 
 
+<div class="image-row">
+  <img src="/assets/images/image-api-stats.png" class="large-img">
+</div>
 
-SOFTWARE
+***<u>SOFTWARE</u>***
 
 DATABASE SERVER --> BACKEND --> FRONTEND
 
 The frontend communicates with the backend API endpoints to retrieve both raw sensor data and aggregated statistics. This data is then used to render a responsive, animated line chart using React and the D3.js library. 
 
 Each chart includes a number of aesthetic and interactive enhancements for improved user experience: tooltips for closer data inspection, smooth animations for transitions and updates, formatted axes for readability, grid lines for visual guidance, and gradient fills to enhance visual appeal. This integration of backend data with dynamic frontend visualization enables real-time, intuitive monitoring of sensor metrics.  
+
+<div class="image-row">
+  <img src="/assets/images/image-app-charts.png" class="large-img">
+</div>
  
 Temperature and humidity line graphs are displayed as soon as dates to filter on are chosen. Statistics such as the minimum, maximum, and average corresponding to the selected data are also calculated and displayed.
 
+<div class="image-row">
+  <img src="/assets/images/image-app-tooltips.png" class="large-img">
+</div>
  
 An interactive tooltips feature has been added for precise data inspection.
  
 A close up of the tooltip feature of the app. The measure of every data point of both graphs can be displayed with the simple hovering of the mouse over the data point. 
 
+<div class="image-row">
+  <img src="/assets/images/image-app-tooltips-closeup.png" class="large-img">
+</div>
+ 
+
 An important architectural detail is that the data collection logic operates independently from the web server. This separation ensures that the web server can access and display newly collected data in real time without needing to control or wait on the data acquisition process. With the app’s modular and dynamic design, users can adjust the date range as often as they would like. When the date range is changed, the frontend fetches and displays updated data without requiring a full page reload, resulting in a smooth and responsive user experience. 
 
-**Design Decisions, Additional Considerations, and Concluding Thoughts**
+**<u>Design Decisions, Additional Considerations, and Concluding Thoughts</u>**
 
 Crafting my own open-ended project and having the grit to finish it in its entirety within a narrowed scope that I define myself was not trivial. I wrestled with countless internal debates: Should I add a carbon dioxide sensor to the DataSprout Platform? Should I use Plotly.js instead of D3.js for data visualization? Should I use React or Angular, MariaDB or MySQL, Python or C for the tech stack? Some decisions were made for me such as when I realized after implementation that Plotly.js was just too heavy for the Raspberry Pi OS. Others came from trial and error and testing different paths until a decision felt right. For example, I used a C binary to fetch and expose data from the database server for the /api/data endpoint, whereas I queried the database directly using SQL for the /api/stats endpoint. While I could have used either approach for both endpoints, I intentionally chose different methods to better understand the various data flow options. Through that process, I found that using the C binary for the /api/data endpoint aligned more naturally with the firmware’s architecture, whereas going through C for /api/stats, which only returns a summary of the data, would have added unnecessary complexity.
 
