@@ -7,8 +7,8 @@
 .image-row{
     display: flex;
     justify-content: center;
-    gap: 10px; 
-    margin: 20px auto;
+    gap: 2px; 
+    margin: 5px auto;
 }
 
 .image-row img {
@@ -17,7 +17,7 @@
 }
 
 .small-img {
-    width: 30%;
+    width: 35%;
 }
 
 .large-img {
