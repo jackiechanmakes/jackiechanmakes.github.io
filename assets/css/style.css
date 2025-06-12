@@ -1,0 +1,14 @@
+body {
+    color: gray;
+}
+
+.image-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px; 
+    margin: 20px auto;
+}
+
+.image-row img {
+    width: 45%;
+}
