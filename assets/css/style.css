@@ -1,6 +1,9 @@
 .image-description {
-    text-align: center;
     color: gray;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    width: fit-content;
 }
 
 .image-row {
