@@ -56,10 +56,14 @@ To support my plants’ era of thriving, **DataSprout** uses a **Raspberry Pi 5*
 - Bash scripting
 
 **Project Structure**
-![alt text](/assets/images/image-proj-directory.png)
+<div class="image-row">
+  <img src="/assets/images/image-proj-directory.png">
+</div>
 
 **System Design and Setup Overview**
-![alt text](/assets/images/image-sys-architecture.png)
+<div class="image-row">
+  <img src="/assets/images/image-sys-architecture.png">
+</div>
 
 System Architecture Overview diagram. Sensor data flows among the hardware components, database, and web server
 
