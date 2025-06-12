@@ -24,7 +24,7 @@ I’ve been fortunate to grow up with parents who love to garden, which means I�
 
 I’ve been unfortunate to find after I moved away that I don’t naturally possess the same affinity for keeping plants alive. To increase my chances of not being labelled as the family’s ‘black thumb’, I’ve come up with an IoT project, which I call DataSprout, to monitor environmental temperature and humidity data, which are vital to a plant’s wellbeing. 
 
-To support my plants’ era of thriving, DataSprout uses a Raspberry Pi 5 running the Debian GNU/Linux 12 (bookworm) operating system with connections to a DHT11 sensor and 16x2 I2C LCD panel. The firmware logic to initialize and run the hardware system is written in C. As an extension to the project, a full stack web application has been created using MariaDB as the database, Node.js/Express.js as the backend/API server, and React as the frontend/web client along with the D3.js library to dynamically capture and visualize real-time data. On the technical side, motivation stems from wanting to explore the intersection among electrical engineering, computer engineering, and software engineering in the form of hardware components that include sensors with a full-stack web app built from scratch. Additionally, with a particular interest in data visualization, I wanted to craft the foundation of a monitoring dashboard which would encourage more frequent plant monitoring but also could be expanded on for future technical projects, which I foresee will be useful as data drive decisions across different telemetry applications. 
+To support my plants’ era of thriving, **DataSprout** uses a **Raspberry Pi 5** running the **Debian GNU/Linux 12** (bookworm) operating system with connections to a **DHT11 sensor** and **16x2 I2C LCD panel**. The firmware logic to initialize and run the hardware system is written in **C**. As an extension to the project, a full stack web application has been created using **MariaDB** as the database, **Node.js/Express**.js as the backend/API server, and **React** as the frontend/web client along with the **D3.js** library to dynamically capture and visualize real-time data. On the technical side, motivation stems from wanting to explore the intersection among electrical engineering, computer engineering, and software engineering in the form of hardware components that include sensors with a full-stack web app built from scratch. Additionally, with a particular interest in data visualization, I wanted to craft the foundation of a monitoring dashboard which would encourage more frequent plant monitoring but also could be expanded on for future technical projects, which I foresee will be useful as data drive decisions across different telemetry applications. 
 
 **<u>DataSprout Platform Features</u>**
 1.	**LCD Panel display** of the latest temperature and humidity sensor reading with corresponding timestamps using a Raspberry Pi 5 and DHT11 sensor
@@ -37,7 +37,7 @@ To support my plants’ era of thriving, DataSprout uses a Raspberry Pi 5 runnin
 4.	**Automated Bash scripts** to start and stop the frontend, backend, and data collection services with a single command execution
 5.	**Modular system design** allowing for easy integration of additional sensors, features, or services to support future scalability and upgrade efforts 
 
-**Tech Stack**
+**<u>Tech Stack</u>**
 
 **HARDWARE:**
 - Raspberry Pi 5
