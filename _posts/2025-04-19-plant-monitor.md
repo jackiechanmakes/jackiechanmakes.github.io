@@ -16,8 +16,8 @@ I created DataSprout, an IoT sensor monitoring system consisting of a Raspberry 
 I’ve been fortunate to grow up with parents who love to garden, which means I’ve enjoyed for as long as I could remember high quality, hard-to-find fresh fruits and mental boosts that inherently come from being around thriving nature.
 
 <div class="image-row">
-  <img src="/assets/images/image-plant1.png">
-  <img src="/assets/images/image-plant2.png">
+  <img src="/assets/images/image-plant1.png" class="small-img">
+  <img src="/assets/images/image-plant2.png" class="small-img">
 </div>
 
 <p class="image-description">Photos of my parent’s thriving garden.</p>
@@ -55,14 +55,14 @@ To support my plants’ era of thriving, **DataSprout** uses a **Raspberry Pi 5*
 - D3.js
 - Bash scripting
 
-**Project Structure**
+**<u>Project Structure</u>**
 <div class="image-row">
-  <img src="/assets/images/image-proj-directory.png">
+  <img src="/assets/images/image-proj-directory.png" class="large-img">
 </div>
 
-**System Design and Setup Overview**
+**<u>System Design and Setup Overview</u>**
 <div class="image-row">
-  <img src="/assets/images/image-sys-architecture.png">
+  <img src="/assets/images/image-sys-architecture.png" class="large-img">
 </div>
 
 System Architecture Overview diagram. Sensor data flows among the hardware components, database, and web server

@@ -6,13 +6,18 @@
     width: fit-content;
 }
 
+.image-row-plants{
+    display: flex;
+    justify-content: center;
+    gap: 10px; 
+    margin: 20px auto;
+    width: 45%;
+}
+
 .image-row {
     display: flex;
     justify-content: center;
     gap: 10px; 
     margin: 20px auto;
-}
-
-.image-row img {
     width: 45%;
 }
