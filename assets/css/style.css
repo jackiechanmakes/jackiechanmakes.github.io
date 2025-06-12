@@ -1,23 +1,29 @@
 .image-description {
     color: gray;
     text-align: center;
-    display: block;
     margin: 0 auto;
-    width: fit-content;
 }
 
-.image-row-plants{
+.image-row{
     display: flex;
     justify-content: center;
     gap: 10px; 
     margin: 20px auto;
-    width: 45%;
 }
 
-.image-row {
-    display: flex;
-    justify-content: center;
-    gap: 10px; 
-    margin: 20px auto;
-    width: 45%;
+.image-row img {
+    height: auto;
+    display: block;
+}
+
+.small-img {
+    width: 30%;
+}
+
+.large-img {
+    width: 60;
+}
+
+table, th, td {
+  text-align: center;
 }

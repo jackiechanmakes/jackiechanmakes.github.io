@@ -67,13 +67,18 @@ To support my plants’ era of thriving, **DataSprout** uses a **Raspberry Pi 5*
 
 System Architecture Overview diagram. Sensor data flows among the hardware components, database, and web server
 
-**HARDWARE**
+***HARDWARE***
 A Raspberry Pi 5, equipped with a GPIO 40-pin Breakout Extension Board, is connected with Dupont jumper wires to a full sized 830-point breadboard, DHT11 temperature and humidity sensor, and a 16x2 I2C LCD panel. 
 
-![alt text](/assets/images/image-hardware-setup.png)
+<div class="image-row">
+  <img src="/assets/images/image-hardware-setup.png" class="large-img">
+</div>
 Screenshot of DataSprout Platform hardware setup. 
  
-![alt text](/assets/images/image-fritzing-diagram.png)
+<div class="image-row">
+  <img src="/assets/images/image-fritzing-diagram.png" class="large-img">
+</div>
+
 Fritzing circuit wiring diagram showcases the connections needed for the Raspberry Pi 5, breadboard, I2C LCD panel, and DHT11 temperature and humidity sensor.
  
 Hardware Component	Pin on Component	Connects to Pi Pin #	Function
