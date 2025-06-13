@@ -80,6 +80,7 @@ A Raspberry Pi 5, equipped with a GPIO 40-pin Breakout Extension Board, is conne
 
 <p class="image-description">Fritzing circuit wiring diagram showcases the connections needed for the Raspberry Pi 5, breadboard, I2C LCD panel, and DHT11 temperature and humidity sensor.</p>
 
+<br>
 <table>
   <tr>
     <th>Hardware Component</th>
@@ -136,17 +137,17 @@ A Raspberry Pi 5, equipped with a GPIO 40-pin Breakout Extension Board, is conne
 
 ## ***<u>HARDWARE/SOFTWARE INTERFACE: FIRMWARE LOGIC</u>***
 
-**1.	DATA COLLECTION**
+### **1.	DATA COLLECTION**
 
 **FIRMWARE LOGIC --> SENSOR HARDWARE --> FIRMWARE LOGIC --> DATABASE SERVER**
 
 After the Raspberry Pi 5 is powered on, the DHT11 sensor and I2C LCD display panel remain idle until triggered by a signal set off by the firmware logic. This activation is initiated by executing a ‘nohup’ command within the start-data-collection.sh script, which runs the collect_data.c program (refer to Appendix A) to: (1) read data from the sensor, (2) display it on the LCD panel, and (3) insert the data into a MariaDB database. These operations repeat every 30 minutes until either the Raspberry Pi is shut down or the process is explicitly terminated using the stop-data-collection.sh script. The use of the POSIX nohup command (short for 'no hang up') ensures the data collection process continues running in the system’s background even if the user logs out or the session ends.
 
-**2.	DATA FETCH**
+### **2.	DATA FETCH**
 
 In a fully modular and independent process, the frontend and backend of the full stack web application are launched through a Bash script (start-app.sh) using ‘pm2’, which retrieves data from the database and serves it to users through the web interface.
 
-1. **FRONTEND --> BACKEND**
+#### 1. **FRONTEND --> BACKEND**
 
     The user interacts with the React frontend by specifying the start and end dates of the data window they want to view. These dates are selected using a calendar date picker dropdown menu. Upon selection, the setStartDate() and setEndDate() functions are invoked to update the component state in App.js. 
  
@@ -168,17 +169,16 @@ After React re-renders App.js with the new state, a useEfect hook that watches [
 - http://localhost:8080/api/stats?startDate=${startDate}&endDate=${endDate}
   - Returns aggregated data statistics including minimum, maximum, and average values.
 
-2. **BACKEND --> FIRMWARE LOGIC --> DATABASE SERVER**
+#### 2. **BACKEND --> FIRMWARE LOGIC --> DATABASE SERVER**
 
 A Node.js server (Server.js) built with the Express framework exposes two API endpoints: /api/data and /api/stats.
-
-
 
 The /api/data endpoint handles requests for raw sensor data. It extracts startDate and endDate from the query string (req.query) and uses them to construct a shell command that executes a compiled C binary:  
 
     ../data-service/fetch_data ${startDate} ${endDate}
 
 This binary is responsible for interfacing with the database to retrieve raw sensor readings for the specified date range. The Node.js ‘exec’ function from the child_process module is used to execute the command. The server captures the binary’s output through stdout and stderr. The stdout data is split by line breaks and parsed into an array of objects, each containing the following properties: temperature, humidity, time. This array, ‘data’, is then returned to the client as a JSON response.
+
 <br>
 <div class="image-row">
   <img src="/assets/images/image-api-data.png" class="large-img">
@@ -188,6 +188,7 @@ This binary is responsible for interfacing with the database to retrieve raw sen
 **BACKEND --> DATABASE SERVER**
 
 The /api/stats endpoint connects directly to the database to compute and retrieve summary statistics. It extracts the startDate and endDate from the query parameters and performs an SQL query to calculate the minimum, maximum, and average values for temperature. After the query is executed, the results are formatted into a JSON object and sent back to the client in the response. 
+
 <br>
 <div class="image-row">
   <img src="/assets/images/image-api-stats.png" class="large-img">
