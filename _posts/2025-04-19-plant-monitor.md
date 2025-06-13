@@ -169,9 +169,11 @@ After React re-renders App.js with the new state, a useEfect hook that watches [
 - http://localhost:8080/api/stats?startDate=${startDate}&endDate=${endDate}
   - Returns aggregated data statistics including minimum, maximum, and average values.
 
-2.	A Node.js server (Server.js) built with the Express framework exposes two API endpoints: /api/data and /api/stats.
+2. **BACKEND --> FIRMWARE LOGIC --> DATABASE SERVER**
 
-**BACKEND --> FIRMWARE LOGIC --> DATABASE SERVER**
+A Node.js server (Server.js) built with the Express framework exposes two API endpoints: /api/data and /api/stats.
+
+
 
 The /api/data endpoint handles requests for raw sensor data. It extracts startDate and endDate from the query string (req.query) and uses them to construct a shell command that executes a compiled C binary:  
 
