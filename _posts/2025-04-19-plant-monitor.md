@@ -17,9 +17,9 @@ I’ve been fortunate to grow up with parents who love to garden, which means I�
 <div class="image-row">
   <!-- <img src="/assets/images/image-plant1.png" class="small-img"> -->
   <img src="/assets/images/image-plant2.png" class="large-img">
-  <p class="image-description">Photo of my parent’s thriving garden.</p>
 </div>
 
+<p class="image-description">Photo of my parent’s thriving garden.</p>
 
 I’ve been unfortunate to find after I moved away that I don’t naturally possess the same affinity for keeping plants alive. To increase my chances of not being labelled as the family’s ‘black thumb’, I’ve come up with an IoT project, which I call DataSprout, to monitor environmental temperature and humidity data, which are vital to a plant’s wellbeing. 
 
@@ -61,7 +61,7 @@ To support my plants’ era of thriving, **DataSprout** uses a **Raspberry Pi 5*
 
 # **<u>System Design and Setup Overview</u>**
 <div class="image-row">
-  <img src="/assets/images/image-sys-architecture.png" class="large-img">
+  <img src="/assets/images/image-sys-architecture.png" class="larger-img">
 </div>
 
 System Architecture Overview diagram. Sensor data flows among the hardware components, database, and web server
