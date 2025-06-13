@@ -81,6 +81,7 @@ A Raspberry Pi 5, equipped with a GPIO 40-pin Breakout Extension Board, is conne
 
 <p class="image-description">Fritzing circuit wiring diagram showcases the connections needed for the Raspberry Pi 5, breadboard, I2C LCD panel, and DHT11 temperature and humidity sensor.</p>
 
+<br>
 <table>
   <tr>
     <th>Hardware Component</th>
