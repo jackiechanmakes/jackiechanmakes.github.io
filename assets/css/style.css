@@ -31,7 +31,9 @@
     width: 80%;
 }
 
-
+.xlarge-img {
+    width: 90%;
+}
 
 table, th, td {
   text-align: center;
