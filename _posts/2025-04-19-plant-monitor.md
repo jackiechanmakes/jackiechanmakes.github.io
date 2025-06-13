@@ -135,6 +135,7 @@ A Raspberry Pi 5, equipped with a GPIO 40-pin Breakout Extension Board, is conne
 </table>
 
 <p class="image-description">Wiring chart details the wiring connections needed among the hardware components with jumper wires.</p>
+<br>
 
 ## ***<u>HARDWARE/SOFTWARE INTERFACE: FIRMWARE LOGIC</u>***
 
