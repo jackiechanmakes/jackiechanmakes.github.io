@@ -9,17 +9,17 @@ comments: true
 I created DataSprout, an IoT sensor monitoring system consisting of a Raspberry Pi, hardware sensor components, and web dashboard for real-time environmental data collection and visualization.
 
 <!--more-->
-### [[Project Demonstration Video]](https://youtu.be/q2UzhQ5I93k?si=KLvonQuXUC7zIyVW)
-### [[GitHub Repo]](https://github.com/jackiechanmakes/datasprout-platform)
+## [[Project Demonstration Video]](https://youtu.be/q2UzhQ5I93k?si=KLvonQuXUC7zIyVW)
+## [[GitHub Repo]](https://github.com/jackiechanmakes/datasprout-platform)
 
 I’ve been fortunate to grow up with parents who love to garden, which means I’ve enjoyed for as long as I could remember high quality, hard-to-find fresh fruits and mental boosts that inherently come from being around thriving nature.
 
 <div class="image-row">
-  <img src="/assets/images/image-plant1.png" class="small-img">
-  <img src="/assets/images/image-plant2.png" class="small-img">
+  <!-- <img src="/assets/images/image-plant1.png" class="small-img"> -->
+  <img src="/assets/images/image-plant2.png" class="large-img">
+  <p class="image-description">Photo of my parent’s thriving garden.</p>
 </div>
 
-<p class="image-description">Photos of my parent’s thriving garden.</p>
 
 I’ve been unfortunate to find after I moved away that I don’t naturally possess the same affinity for keeping plants alive. To increase my chances of not being labelled as the family’s ‘black thumb’, I’ve come up with an IoT project, which I call DataSprout, to monitor environmental temperature and humidity data, which are vital to a plant’s wellbeing. 
 
@@ -139,7 +139,7 @@ Wiring chart details the wiring connections needed among the hardware components
 
 **1.	DATA COLLECTION**
 
-FIRMWARE LOGIC --> SENSOR HARDWARE --> FIRMWARE LOGIC --> DATABASE SERVER
+**FIRMWARE LOGIC --> SENSOR HARDWARE --> FIRMWARE LOGIC --> DATABASE SERVER**
 
 After the Raspberry Pi 5 is powered on, the DHT11 sensor and I2C LCD display panel remain idle until triggered by a signal set off by the firmware logic. This activation is initiated by executing a ‘nohup’ command within the start-data-collection.sh script, which runs the collect_data.c program (refer to Appendix A) to: (1) read data from the sensor, (2) display it on the LCD panel, and (3) insert the data into a MariaDB database. These operations repeat every 30 minutes until either the Raspberry Pi is shut down or the process is explicitly terminated using the stop-data-collection.sh script. The use of the POSIX nohup command (short for 'no hang up') ensures the data collection process continues running in the system’s background even if the user logs out or the session ends.
 
@@ -147,7 +147,7 @@ After the Raspberry Pi 5 is powered on, the DHT11 sensor and I2C LCD display pan
 
 In a fully modular and independent process, the frontend and backend of the full stack web application are launched through a Bash script (start-app.sh) using ‘pm2’, which retrieves data from the database and serves it to users through the web interface.
 
-1. FRONTEND --> BACKEND
+1. **FRONTEND --> BACKEND**
 
     The user interacts with the React frontend by specifying the start and end dates of the data window they want to view. These dates are selected using a calendar date picker dropdown menu. Upon selection, the setStartDate() and setEndDate() functions are invoked to update the component state in App.js. 
  
@@ -178,10 +178,12 @@ The /api/data endpoint handles requests for raw sensor data. It extracts startDa
     ../data-service/fetch_data ${startDate} ${endDate}
 
 This binary is responsible for interfacing with the database to retrieve raw sensor readings for the specified date range. The Node.js ‘exec’ function from the child_process module is used to execute the command. The server captures the binary’s output through stdout and stderr. The stdout data is split by line breaks and parsed into an array of objects, each containing the following properties: temperature, humidity, time. This array, ‘data’, is then returned to the client as a JSON response.
-
+</br>
 <div class="image-row">
   <img src="/assets/images/image-api-data.png" class="large-img">
 </div>
+
+</br>
 
 **BACKEND --> DATABASE SERVER**
 
