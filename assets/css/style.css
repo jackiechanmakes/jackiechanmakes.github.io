@@ -9,9 +9,12 @@
 .image-row{
     display: flex;
     justify-content: center;
+    gap: 0;
 }
 
 .image-row img {
+    margin: 0;
+    padding: 0;
     height: auto;
     display: block;
 }
