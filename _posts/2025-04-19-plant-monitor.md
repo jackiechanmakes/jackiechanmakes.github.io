@@ -15,7 +15,7 @@ I created DataSprout, an IoT sensor monitoring system consisting of a Raspberry 
 I’ve been fortunate to grow up with parents who love to garden, which means I’ve enjoyed for as long as I could remember high quality, hard-to-find fresh fruits and mental boosts that inherently come from being around thriving nature.
 
 <div class="image-row">
-  <!-- <img src="/assets/images/image-plant1.png" class="small-img"> -->
+  <img src="/assets/images/image-plant1.png" class="small-img">
   <img src="/assets/images/image-plant2.png" class="small-img">
 </div>
 
