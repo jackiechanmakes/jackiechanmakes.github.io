@@ -181,7 +181,6 @@ The /api/data endpoint handles requests for raw sensor data. It extracts startDa
 
 This binary is responsible for interfacing with the database to retrieve raw sensor readings for the specified date range. The Node.js ‘exec’ function from the child_process module is used to execute the command. The server captures the binary’s output through stdout and stderr. The stdout data is split by line breaks and parsed into an array of objects, each containing the following properties: temperature, humidity, time. This array, ‘data’, is then returned to the client as a JSON response.
 
-<br>
 <div class="image-row">
   <img src="/assets/images/image-api-data.png" class="medium-img">
 </div>
