@@ -1,5 +1,6 @@
 .image-description {
-    color: gray;
+    color: rgb(163, 155, 155);
+    font-size: 10px;
     text-align: center;
     margin: 0 auto;
     width: 100%;
@@ -22,13 +23,15 @@
     width: 35%;
 }
 
-.larger-img {
-    width: 70%;
+.medium-img {
+    width: 60%;
 }
 
 .large-img {
-    width: 60%;
+    width: 80%;
 }
+
+
 
 table, th, td {
   text-align: center;

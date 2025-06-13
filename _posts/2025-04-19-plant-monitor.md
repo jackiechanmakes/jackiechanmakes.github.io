@@ -38,14 +38,14 @@ To support my plants’ era of thriving, **DataSprout** uses a **Raspberry Pi 5*
 
 # **<u>Tech Stack</u>**
 
-## **HARDWARE:**
+### **HARDWARE:**
 - Raspberry Pi 5
 - 16x2 I2C LCD Panel
 - DHT11 temperature and humidity sensor 
 - Dupont jumper wires 
 - GPIO 40-pin Breakout Extension Board
 
-## **SOFTWARE:**
+### **SOFTWARE:**
 - MariaDB
 - C firmware logic code 
 - React
@@ -56,12 +56,12 @@ To support my plants’ era of thriving, **DataSprout** uses a **Raspberry Pi 5*
 
 # **<u>Project Structure</u>**
 <div class="image-row">
-  <img src="/assets/images/image-proj-directory.png" class="large-img">
+  <img src="/assets/images/image-proj-directory.png" class="medium-img">
 </div>
 
 # **<u>System Design and Setup Overview</u>**
 <div class="image-row">
-  <img src="/assets/images/image-sys-architecture.png" class="larger-img">
+  <img src="/assets/images/image-sys-architecture.png" class="large-img">
 </div>
 
 <p class="image-description">System Architecture Overview diagram. Sensor data flows among the hardware components, database, and web server</p>
