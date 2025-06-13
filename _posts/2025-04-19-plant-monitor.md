@@ -9,8 +9,9 @@ comments: true
 I created DataSprout, an IoT sensor monitoring system consisting of a Raspberry Pi, hardware sensor components, and a full stack web dashboard for real-time environmental data collection and visualization.
 
 <!--more-->
-## [[Project Demonstration Video]](https://youtu.be/q2UzhQ5I93k?si=KLvonQuXUC7zIyVW)
-## [[GitHub Repo]](https://github.com/jackiechanmakes/datasprout-platform)
+### [[GitHub Repo]](https://github.com/jackiechanmakes/datasprout-platform)
+### [[Project Demonstration Video]](https://youtu.be/q2UzhQ5I93k?si=KLvonQuXUC7zIyVW)
+
 
 I’ve been fortunate to grow up with parents who love to garden, which means I’ve enjoyed for as long as I could remember high quality, hard-to-find fresh fruits and mental boosts that inherently come from being around thriving nature.
 
@@ -203,13 +204,13 @@ The frontend communicates with the backend API endpoints to retrieve both raw se
 Each chart includes a number of aesthetic and interactive enhancements for improved user experience: tooltips for closer data inspection, smooth animations for transitions and updates, formatted axes for readability, grid lines for visual guidance, and gradient fills to enhance visual appeal. This integration of backend data with dynamic frontend visualization enables real-time, intuitive monitoring of sensor metrics.  
 
 <div class="image-row">
-  <img src="/assets/images/image-app-charts.png" class="large-img">
+  <img src="/assets/images/image-app-charts.png" class="xlarge-img">
 </div>
  
 <p class="image-description">Temperature and humidity line graphs are displayed as soon as dates to filter on are chosen. Statistics such as the minimum, maximum, and average corresponding to the selected data are also calculated and displayed.</p>
 
 <div class="image-row">
-  <img src="/assets/images/image-app-tooltips.png" class="large-img">
+  <img src="/assets/images/image-app-tooltips.png" class="xlarge-img">
 </div>
  
 <p class="image-description">An interactive tooltips feature has been added for precise data inspection.</p>
