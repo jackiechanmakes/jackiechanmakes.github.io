@@ -9,9 +9,7 @@ comments: true
 I created DataSprout, an IoT sensor monitoring system consisting of a Raspberry Pi, hardware sensor components, and a full stack web dashboard for real-time environmental data collection and visualization.
 
 <!--more-->
-### [[GitHub Repo]](https://github.com/jackiechanmakes/datasprout-platform)
-### [[Project Demonstration Video]](https://youtu.be/q2UzhQ5I93k?si=KLvonQuXUC7zIyVW)
-
+### [[GitHub Repo]](https://github.com/jackiechanmakes/datasprout-platform) [[Project Demonstration Video]](https://youtu.be/q2UzhQ5I93k?si=KLvonQuXUC7zIyVW)
 
 I’ve been fortunate to grow up with parents who love to garden, which means I’ve enjoyed for as long as I could remember high quality, hard-to-find fresh fruits and mental boosts that inherently come from being around thriving nature.
 
