@@ -18,6 +18,10 @@
     display: block;
 }
 
+.small-img {
+    width: 35%;
+}
+
 .larger-img {
     width: 70%;
 }
