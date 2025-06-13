@@ -16,7 +16,7 @@ I’ve been fortunate to grow up with parents who love to garden, which means I�
 
 <div class="image-row">
   <!-- <img src="/assets/images/image-plant1.png" class="small-img"> -->
-  <img src="/assets/images/image-plant2.png" class="large-img">
+  <img src="/assets/images/image-plant2.png" class="small-img">
 </div>
 
 <p class="image-description">Photo of my parent’s thriving garden.</p>
