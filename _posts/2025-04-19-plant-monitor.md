@@ -221,6 +221,7 @@ Each chart includes a number of aesthetic and interactive enhancements for impro
   <img src="/assets/images/image-app-tooltips-closeup.png" class="large-img">
 </div>
 
+<br>
 <p class="image-description">A close up of the tooltip feature of the app. The measure of every data point of both graphs can be displayed with the simple hovering of the mouse over the data point.</p> 
 
 An important architectural detail is that the data collection logic operates independently from the web server. This separation ensures that the web server can access and display newly collected data in real time without needing to control or wait on the data acquisition process. With the app’s modular and dynamic design, users can adjust the date range as often as they would like. When the date range is changed, the frontend fetches and displays updated data without requiring a full page reload, resulting in a smooth and responsive user experience. 
