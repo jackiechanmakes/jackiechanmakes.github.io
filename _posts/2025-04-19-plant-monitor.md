@@ -6,7 +6,7 @@ excerpt_separator: <!--more-->
 tags: projects
 comments: true
 ---
-I created DataSprout, an IoT sensor monitoring system consisting of a Raspberry Pi, hardware sensor components, and web dashboard for real-time environmental data collection and visualization.
+I created DataSprout, an IoT sensor monitoring system consisting of a Raspberry Pi, hardware sensor components, and a full stack web dashboard for real-time environmental data collection and visualization.
 
 <!--more-->
 ## [[Project Demonstration Video]](https://youtu.be/q2UzhQ5I93k?si=KLvonQuXUC7zIyVW)
@@ -64,7 +64,7 @@ To support my plants’ era of thriving, **DataSprout** uses a **Raspberry Pi 5*
   <img src="/assets/images/image-sys-architecture.png" class="larger-img">
 </div>
 
-System Architecture Overview diagram. Sensor data flows among the hardware components, database, and web server
+<p class="image-description">System Architecture Overview diagram. Sensor data flows among the hardware components, database, and web server</p>
 
 ## ***<u>HARDWARE</u>***
 A Raspberry Pi 5, equipped with a GPIO 40-pin Breakout Extension Board, is connected with Dupont jumper wires to a full sized 830-point breadboard, DHT11 temperature and humidity sensor, and a 16x2 I2C LCD panel. 
@@ -72,13 +72,14 @@ A Raspberry Pi 5, equipped with a GPIO 40-pin Breakout Extension Board, is conne
 <div class="image-row">
   <img src="/assets/images/image-hardware-setup.png" class="large-img">
 </div>
-Screenshot of DataSprout Platform hardware setup. 
+
+<p class="image-description">Screenshot of DataSprout Platform hardware setup.</p>
  
 <div class="image-row">
   <img src="/assets/images/image-fritzing-diagram.png" class="large-img">
 </div>
 
-Fritzing circuit wiring diagram showcases the connections needed for the Raspberry Pi 5, breadboard, I2C LCD panel, and DHT11 temperature and humidity sensor.
+<p class="image-description">Fritzing circuit wiring diagram showcases the connections needed for the Raspberry Pi 5, breadboard, I2C LCD panel, and DHT11 temperature and humidity sensor.</p>
 
 <table>
   <tr>
@@ -132,8 +133,7 @@ Fritzing circuit wiring diagram showcases the connections needed for the Raspber
   </tr>
 </table>
 
-
-Wiring chart details the wiring connections needed among the hardware components with jumper wires.
+<p class="image-description">Wiring chart details the wiring connections needed among the hardware components with jumper wires.</p>
 
 ## ***<u>HARDWARE/SOFTWARE INTERFACE: FIRMWARE LOGIC</u>***
 
@@ -155,13 +155,13 @@ In a fully modular and independent process, the frontend and backend of the full
   <img src="/assets/images/image-app-landing-page.png" class="large-img">
 </div>
 
-DataSprout Platform app landing page.
+<p class="image-description">DataSprout Platform app landing page.</p>
 
 <div class="image-row">
   <img src="/assets/images/image-app-datepicker.png" class="large-img">
 </div>
 
-Date picker UI showcase of the DataSprout Platform app. 
+<p class="image-description">Date picker UI showcase of the DataSprout Platform app.</p>
 
 After React re-renders App.js with the new state, a useEfect hook that watches [startDate, endDate] is triggered. This hook initiates data fetching from the following two RESTful API endpoints: 
 - http://localhost:8080/api/data?startDate=${startDate}&endDate=${endDate}
@@ -178,17 +178,16 @@ The /api/data endpoint handles requests for raw sensor data. It extracts startDa
     ../data-service/fetch_data ${startDate} ${endDate}
 
 This binary is responsible for interfacing with the database to retrieve raw sensor readings for the specified date range. The Node.js ‘exec’ function from the child_process module is used to execute the command. The server captures the binary’s output through stdout and stderr. The stdout data is split by line breaks and parsed into an array of objects, each containing the following properties: temperature, humidity, time. This array, ‘data’, is then returned to the client as a JSON response.
-</br>
+<br>
 <div class="image-row">
   <img src="/assets/images/image-api-data.png" class="large-img">
 </div>
-
-</br>
+<br>
 
 **BACKEND --> DATABASE SERVER**
 
 The /api/stats endpoint connects directly to the database to compute and retrieve summary statistics. It extracts the startDate and endDate from the query parameters and performs an SQL query to calculate the minimum, maximum, and average values for temperature. After the query is executed, the results are formatted into a JSON object and sent back to the client in the response. 
-
+<br>
 <div class="image-row">
   <img src="/assets/images/image-api-stats.png" class="large-img">
 </div>
@@ -205,24 +204,23 @@ Each chart includes a number of aesthetic and interactive enhancements for impro
   <img src="/assets/images/image-app-charts.png" class="large-img">
 </div>
  
-Temperature and humidity line graphs are displayed as soon as dates to filter on are chosen. Statistics such as the minimum, maximum, and average corresponding to the selected data are also calculated and displayed.
+<p class="image-description">Temperature and humidity line graphs are displayed as soon as dates to filter on are chosen. Statistics such as the minimum, maximum, and average corresponding to the selected data are also calculated and displayed.</p>
 
 <div class="image-row">
   <img src="/assets/images/image-app-tooltips.png" class="large-img">
 </div>
  
-An interactive tooltips feature has been added for precise data inspection.
- 
-A close up of the tooltip feature of the app. The measure of every data point of both graphs can be displayed with the simple hovering of the mouse over the data point. 
+<p class="image-description">An interactive tooltips feature has been added for precise data inspection.</p>
 
 <div class="image-row">
   <img src="/assets/images/image-app-tooltips-closeup.png" class="large-img">
 </div>
- 
+
+<p class="image-description">A close up of the tooltip feature of the app. The measure of every data point of both graphs can be displayed with the simple hovering of the mouse over the data point.</p> 
 
 An important architectural detail is that the data collection logic operates independently from the web server. This separation ensures that the web server can access and display newly collected data in real time without needing to control or wait on the data acquisition process. With the app’s modular and dynamic design, users can adjust the date range as often as they would like. When the date range is changed, the frontend fetches and displays updated data without requiring a full page reload, resulting in a smooth and responsive user experience. 
 
-## **<u>Design Decisions, Additional Considerations, and Concluding Thoughts</u>**
+### **<u>Design Decisions, Additional Considerations, and Concluding Thoughts</u>**
 
 Crafting my own open-ended project and having the grit to finish it in its entirety within a narrowed scope that I define myself was not trivial. I wrestled with countless internal debates: Should I add a carbon dioxide sensor to the DataSprout Platform? Should I use Plotly.js instead of D3.js for data visualization? Should I use React or Angular, MariaDB or MySQL, Python or C for the tech stack? Some decisions were made for me such as when I realized after implementation that Plotly.js was just too heavy for the Raspberry Pi OS. Others came from trial and error and testing different paths until a decision felt right. For example, I used a C binary to fetch and expose data from the database server for the /api/data endpoint, whereas I queried the database directly using SQL for the /api/stats endpoint. While I could have used either approach for both endpoints, I intentionally chose different methods to better understand the various data flow options. Through that process, I found that using the C binary for the /api/data endpoint aligned more naturally with the firmware’s architecture, whereas going through C for /api/stats, which only returns a summary of the data, would have added unnecessary complexity.
 
