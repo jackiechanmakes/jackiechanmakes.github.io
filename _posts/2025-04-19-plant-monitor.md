@@ -183,7 +183,7 @@ This binary is responsible for interfacing with the database to retrieve raw sen
 
 <br>
 <div class="image-row">
-  <img src="/assets/images/image-api-data.png" class="large-img">
+  <img src="/assets/images/image-api-data.png" class="medium-img">
 </div>
 <br>
 
@@ -223,7 +223,6 @@ Each chart includes a number of aesthetic and interactive enhancements for impro
 </div>
 
 <p class="image-description">A close up of the tooltip feature of the app. The measure of every data point of both graphs can be displayed with the simple hovering of the mouse over the data point.</p> 
-<br>
 
 An important architectural detail is that the data collection logic operates independently from the web server. This separation ensures that the web server can access and display newly collected data in real time without needing to control or wait on the data acquisition process. With the app’s modular and dynamic design, users can adjust the date range as often as they would like. When the date range is changed, the frontend fetches and displays updated data without requiring a full page reload, resulting in a smooth and responsive user experience. 
 
