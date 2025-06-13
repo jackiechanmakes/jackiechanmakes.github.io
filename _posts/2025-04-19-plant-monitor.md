@@ -149,7 +149,7 @@ In a fully modular and independent process, the frontend and backend of the full
 
 #### 1. **FRONTEND --> BACKEND**
 
-    The user interacts with the React frontend by specifying the start and end dates of the data window they want to view. These dates are selected using a calendar date picker dropdown menu. Upon selection, the setStartDate() and setEndDate() functions are invoked to update the component state in App.js. 
+The user interacts with the React frontend by specifying the start and end dates of the data window they want to view. These dates are selected using a calendar date picker dropdown menu. Upon selection, the setStartDate() and setEndDate() functions are invoked to update the component state in App.js. 
  
  <div class="image-row">
   <img src="/assets/images/image-app-landing-page.png" class="large-img">
@@ -157,6 +157,7 @@ In a fully modular and independent process, the frontend and backend of the full
 
 <p class="image-description">DataSprout Platform app landing page.</p>
 
+<br>
 <div class="image-row">
   <img src="/assets/images/image-app-datepicker.png" class="large-img">
 </div>
@@ -208,17 +209,20 @@ Each chart includes a number of aesthetic and interactive enhancements for impro
  
 <p class="image-description">Temperature and humidity line graphs are displayed as soon as dates to filter on are chosen. Statistics such as the minimum, maximum, and average corresponding to the selected data are also calculated and displayed.</p>
 
+<br>
 <div class="image-row">
   <img src="/assets/images/image-app-tooltips.png" class="xlarge-img">
 </div>
  
 <p class="image-description">An interactive tooltips feature has been added for precise data inspection.</p>
+<br>
 
 <div class="image-row">
   <img src="/assets/images/image-app-tooltips-closeup.png" class="large-img">
 </div>
 
 <p class="image-description">A close up of the tooltip feature of the app. The measure of every data point of both graphs can be displayed with the simple hovering of the mouse over the data point.</p> 
+<br>
 
 An important architectural detail is that the data collection logic operates independently from the web server. This separation ensures that the web server can access and display newly collected data in real time without needing to control or wait on the data acquisition process. With the app’s modular and dynamic design, users can adjust the date range as often as they would like. When the date range is changed, the frontend fetches and displays updated data without requiring a full page reload, resulting in a smooth and responsive user experience. 
 
