@@ -10,6 +10,7 @@
     justify-content: center;
     gap: 2px; 
     margin: 5px auto;
+    font-size: 0;
 }
 
 .image-row img {
