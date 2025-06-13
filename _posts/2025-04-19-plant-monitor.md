@@ -59,7 +59,7 @@ To support my plants’ era of thriving, **DataSprout** uses a **Raspberry Pi 5*
   <img src="/assets/images/image-proj-directory.png" class="large-img">
 </div>
 
-## **<u>System Design and Setup Overview</u>**
+# **<u>System Design and Setup Overview</u>**
 <div class="image-row">
   <img src="/assets/images/image-sys-architecture.png" class="large-img">
 </div>
