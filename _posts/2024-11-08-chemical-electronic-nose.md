@@ -1,12 +1,9 @@
 **Chemical Sensor Array Designed to Identify Various Chemical Vapors**
 
 <div class="image-row">
-  <img src="/assets/images/image-enose-chip.png" class="medium-img">
+  <img src="/assets/images/image-enose-chip.png" class="small-img">
 </div>
-<p class="image-description">Figure 1. Picture of the four sensors of the CSA.
-The four polymers used for each chemiresistor
-are: polyethyelene (PE), poly(ethyelne) oxide
-(PEO), modified polystyrene (MPS), and
+<p class="image-description">Figure 1. Picture of the four sensors of the CSA. The four polymers used for each chemiresistor are: polyethyelene (PE), poly(ethyelne) oxide (PEO), modified polystyrene (MPS), and
 polvinyl alchol (PVA)</p>
 
 **Abstract**
@@ -49,7 +46,9 @@ measurements. The spikes in resistance measurements occur when the sensor is exp
 
 After acquiring the filtered data, we used the chemical sensor responses to the various chemical vapors for pattern recognition analysis. The average of the resistance measurements was taken in order to acquire R∞. We would then use equation (1) to achieve our chemical sensor response to the vapor of interest. 
 
-![alt text](/assets/images/image-enose-eqn.png)
+<div class="image-row">
+  <img src="/assets/images/image-enose-eqn.png" class="small-img">
+</div>
 
 A training data set of 33 data samples with 11 data samples for each chemical vapor exposure
 was acquired. A program was then designed to recognize the patterns of the sensor responses to
@@ -93,11 +92,24 @@ A polymer-based chemical sensor array has been designed and fabricated to yield
 distinctive signal patterns in response to various chemical vapors. The chemical sensor has been able to distinguish among three different chemical vapors (n-hexane, acetone, and dichloromethane), which have been chosen due to their use in paints and paint removers. The
 results presented in this paper provide a basis for advances in identifying various chemicals using the designed CSA. Recommendations for future work include acquiring a more robust training data set that includes more data collections from the pure chemicals of interest, mixtures of the chemicals of interest, and chemicals that are not in the training data set at all but is likely to exist in the paint companies. Such chemicals can include sodium hydroxide, toluene, methyl ethyl ketone, and xylene. Future work also includes tailoring the sensor to specific places by temperature and humidity
 
-![alt text](/assets/images/image-enose-fig2.png)
+<div class="image-row">
+  <img src="/assets/images/image-enose-fig2.png" class="small-img">
+</div>
+<p class="image-description">
 Figure 2. Resistance measurements vs. Time of each of the three chemical vapors of interest: a) Acetone, b) DCM, and c) n-Hexane
+</p>
 
-![alt text](/assets/images/image-enose-fig3.png)
+
+<div class="image-row">
+  <img src="/assets/images/image-enose-fig3.png" class="small-img">
+</div>
+<p class="image-description">
 Figure 3. Plots of the polymer sensor signals in response to thethree chemical vapors of interest with a comparison among: a) PVA, PEO, and PE and b) PVA, MPS, and PE
+</<p>
 
-![alt text](/assets/images/image-enose-fig4.png)
+<div class="image-row">
+  <img src="/assets/images/image-enose-fig4.png" class="small-img">
+</div>
+<p class="image-description">
 Figure 4. Comparison of the success rate of the two methods used to analyze the data, k-Means and KNN, during internal, cross validation, and external testing.
+</p>
