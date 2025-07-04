@@ -1,13 +1,13 @@
 **Chemical Sensor Array Designed to Identify Various Chemical Vapors**
 
 <div class="image-row">
-  <img src="/assets/images/image-enose-chip.png" class="large-img">
+  <img src="/assets/images/image-enose-chip.png" class="medium-img">
 </div>
-Figure 1. Picture of the four sensors of the CSA.
+<p class="image-description">Figure 1. Picture of the four sensors of the CSA.
 The four polymers used for each chemiresistor
 are: polyethyelene (PE), poly(ethyelne) oxide
 (PEO), modified polystyrene (MPS), and
-polvinyl alchol (PVA)
+polvinyl alchol (PVA)</p>
 
 **Abstract**
 
